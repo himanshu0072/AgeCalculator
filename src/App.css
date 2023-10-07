@@ -12,3 +12,10 @@
   width: 100%;
   background-color: aqua;
 }
+
+.result{
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
