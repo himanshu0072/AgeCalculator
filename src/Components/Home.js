@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [dateOfBirth, setDateOfBirth] = useState("");
 
   const handleDateChange = (event) => {
@@ -11,6 +13,7 @@ function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Users date of birth is:", dateOfBirth);
+    navigate("/main", { state: { dateOfBirth } });
   };
   return (
     <div className="Container">
@@ -26,7 +29,9 @@ function Home() {
           onChange={handleDateChange}
         ></input>
         <button type="submit" name="Submit" className="submit">
-          →
+          <a href="/main" className="submit">
+            →
+          </a>
         </button>
       </form>
     </div>
