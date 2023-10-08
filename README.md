@@ -47,9 +47,6 @@ To run the Age Calculator locally, follow these steps:
 Open your browser and visit http://localhost:3000.
 
 
-### Usage
-Explain how users can use your Age Calculator project. Provide examples, code snippets, or screenshots to demonstrate its functionality.
-
 ### Contributing
 Contributions are welcome! To contribute to the Age Calculator
 
