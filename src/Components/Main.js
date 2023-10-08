@@ -1,15 +1,37 @@
 import React, { useState, useEffect } from "react";
-import "./Home.js";
-import "../App.css";
-import { useLocation } from "react-router-dom";
 
-function Main(props) {
-  const location = useLocation();
-  const dateOfBirth = location.state?.dateOfBirth;
-
+function Main({ dateOfBirth }) {
   // Function to calculate and format the age
   const calculateAge = (dateOfBirth) => {
+    if (!dateOfBirth) {
+      // Return default values when dateOfBirth is empty
+      return {
+        years: 0,
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        milliseconds: 0,
+      };
+    }
+
     const birthDate = new Date(dateOfBirth);
+
+    // Check if the birthDate is a valid date
+    if (isNaN(birthDate.getTime())) {
+      // Return default values when dateOfBirth is not a valid date
+      return {
+        years: 0,
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        milliseconds: 0,
+      };
+    }
+
     const currentDate = new Date();
 
     // Calculate the time difference
@@ -29,7 +51,10 @@ function Main(props) {
     };
   };
 
-  const [age, setAge] = useState(calculateAge(dateOfBirth));
+  // Initialize age with default values
+  const initialAge = calculateAge(dateOfBirth);
+
+  const [age, setAge] = useState(initialAge);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -44,11 +69,11 @@ function Main(props) {
 
   return (
     <>
-      <h6 className="result">
+      <p className="results">
         Age: {age.years} years, {age.months} months, {age.days} days,{" "}
         {age.hours} hours, {age.minutes} minutes, {age.seconds} seconds,{" "}
         {age.milliseconds} milliseconds
-      </h6>
+      </p>
     </>
   );
 }

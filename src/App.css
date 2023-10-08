@@ -2,7 +2,7 @@
   font-size: 20px;
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-inline: 10%;
 }
 .dob{
@@ -11,6 +11,7 @@
 .submit{
   width: 100%;
   background-color: aqua;
+  text-decoration: none;
 }
 
 /* .result{
@@ -20,7 +21,72 @@
   justify-content: center;
 } */
 .result{
-  margin-top: 15%;
+  margin-top: 5%;
   text-align: center;
   font-size: 30px;
+}
+.results{
+  font-weight: bold;
+  margin-top: 5%;
+  text-align: center;
+  line-height: 1;
+  font-size: 20px;
+}
+
+.developer{
+  margin-top: 10%;
+  text-align: center;
+}
+
+.textcenter{
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .results{
+    margin-top: 10%;
+    text-align: center;
+    line-height: 1;
+    font-size: 15px;
+    margin-inline: 20px;
+  }
+  .textcenter{
+    text-align: center;
+    margin-inline: 10px;
+  }
+
+  .Container{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    margin-inline: 10%;
+  }
+  .dob{
+    width: 100%;
+  }
+  .submit{
+    width: 100%;
+    background-color: aqua;
+    text-decoration: none;
+  }
+  
+  /* .result{
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .results{
+    font-weight: bold;
+    margin-top: 10%;
+    text-align: center;
+    line-height: 1;
+  }
+  
+  .developer{
+    margin-top: 30%;
+    text-align: center;
+  }
 }

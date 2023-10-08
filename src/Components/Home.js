@@ -1,40 +1,40 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-function Home() {
-  const navigate = useNavigate();
+function Home({ onDateOfBirthChange }) {
   const [dateOfBirth, setDateOfBirth] = useState("");
 
   const handleDateChange = (event) => {
-    setDateOfBirth(event.target.value || "");
-    console.log(dateOfBirth);
+    const selectedDate = event.target.value;
+    setDateOfBirth(selectedDate);
+    console.log(selectedDate);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Users date of birth is:", dateOfBirth);
-    navigate("/main", { state: { dateOfBirth } });
+    console.log("User's date of birth is:", dateOfBirth);
+    onDateOfBirthChange(dateOfBirth);
   };
-  return (
-    <div className="Container">
-      <form className="Form" onSubmit={handleSubmit}>
-        <label htmlFor="dob">Select your birth date</label>
 
-        <input
-          type="date"
-          name="dob"
-          id="dob"
-          className="dob"
-          value={dateOfBirth || ""}
-          onChange={handleDateChange}
-        ></input>
-        <button type="submit" name="Submit" className="submit">
-          <a href="/main" className="submit">
+  return (
+    <>
+      <h1 className="textcenter">Accurate Age Calculater</h1>
+      <div className="Container">
+        <form className="Form" onSubmit={handleSubmit}>
+          <label htmlFor="dob">Select your birth date</label>
+          <input
+            type="date"
+            name="dob"
+            id="dob"
+            className="dob"
+            value={dateOfBirth}
+            onChange={handleDateChange}
+          ></input>
+          <button type="submit" name="Submit" className="submit">
             →
-          </a>
-        </button>
-      </form>
-    </div>
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
